@@ -782,7 +782,30 @@ export default function Dashboard2() {
                 </p>
               </div>
 
-              
+              {surveyQuestionsFull.map((q) => (
+                <div key={q.key} className="col-span-2">
+                  <label className="block text-sm font-medium text-gray-600 mb-1">
+                    {q.label}
+                  </label>
+                  <div className="flex items-center border rounded-lg px-3">
+                    <span className="mr-2 text-lg">{q.icon}</span>
+                    <select
+                      className="w-full p-2 focus:outline-none"
+                      value={form[q.key] || ""}
+                      onChange={(e) =>
+                        setForm({ ...form, [q.key]: e.target.value })
+                      }
+                    >
+                      <option value="">Select</option>
+                      {q.options.map((opt, i) => (
+                        <option key={i} value={opt}>
+                          {opt}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              ))}
 
               {/* Loop Survey Questions */}
               {surveyQuestions.map((q, idx) => (
@@ -1111,8 +1134,30 @@ export default function Dashboard2() {
                   </div>
                 </div>
 
-                {/* Purpose */}
-                
+                {surveyQuestionsFull.map((q) => (
+                  <div key={q.key} className="col-span-2">
+                    <label className="block text-sm font-medium text-gray-600 mb-1">
+                      {q.label}
+                    </label>
+                    <div className="flex items-center border rounded-lg px-3">
+                      <span className="mr-2 text-lg">{q.icon}</span>
+                      <select
+                        className="w-full p-2 focus:outline-none"
+                        value={form[q.key] || ""}
+                        onChange={(e) =>
+                          setForm({ ...form, [q.key]: e.target.value })
+                        }
+                      >
+                        <option value="">Select</option>
+                        {q.options.map((opt, i) => (
+                          <option key={i} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                ))}
 
                 {/* Appointment Date */}
                 <div className="col-span-2">
@@ -1183,9 +1228,6 @@ export default function Dashboard2() {
           </div>
         </div>
       )}
-
-      
-      
     </div>
   );
 }
