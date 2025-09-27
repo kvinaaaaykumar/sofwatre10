@@ -905,25 +905,7 @@ export default function CreateEntry() {
                   </div>
                 </div>
 
-                {/* Purpose */}
-                <div className="col-span-2">
-                  <label className="block text-sm font-medium text-gray-600 mb-1">
-                    Purpose
-                  </label>
-                  <div className="flex items-center border rounded-lg px-3">
-                    <FileText size={18} className="text-orange-500 mr-2" />
-                    <select
-                      className="w-full p-2 focus:outline-none"
-                      value={form.purpose}
-                      onChange={(e) =>
-                        setForm({ ...form, purpose: e.target.value })
-                      }
-                    >
-                      <option value="">Select Purpose</option>
-                      {/* your options... */}
-                    </select>
-                  </div>
-                </div>
+                
 
                 {surveyQuestionsFull.map((q) => (
                   <div key={q.key} className="col-span-2">
@@ -953,7 +935,7 @@ export default function CreateEntry() {
                 {/* Appointment Date */}
                 <div className="col-span-2">
                   <label className="block text-sm font-medium text-gray-600 mb-1">
-                    Booking Date
+                    Survey Date
                   </label>
                   <div className="flex items-center border rounded-lg px-3">
                     <Calendar size={18} className="text-pink-500 mr-2" />
